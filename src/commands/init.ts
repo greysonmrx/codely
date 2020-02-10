@@ -12,10 +12,8 @@ module.exports = {
   run: async (toolbox: GluegunToolbox) => {
     const {
       prompt,
-      print: { success, error, info }
+      print: { success, error, info, spin }
     } = toolbox
-
-    const Git = simplegit()
 
     const result: Result = await prompt.ask([
       {
@@ -43,27 +41,38 @@ module.exports = {
       return
     }
 
-    const repositories = {
+    const repositories: Object = {
       'Server': 'https://github.com/greysonmrx/node-structure',
       'Web': 'https://github.com/greysonmrx/react-structure',
       'Mobile': 'https://github.com/greysonmrx/react-native-structure'
     }
 
-    types.map(async type => {
+    const Git = simplegit()
+    
+    const spinner = spin(`Cloning repositories...\n`)
+    spinner.start()
+
+    types.map(async (type, index) => {
       try {
-        info(`Cloning ${type} repository...`);
-      
         await Git.clone(
           `${repositories[type]}`,
           `./${name}/${type}`
         )
-  
-        success(`${type} repository successfully cloned!`)
-        return;
+
+        if (index === types.length - 1) {
+          spinner.succeed('All repositories have been successfully cloned')
+          info(`Getting started:\n`)
+          info(`  cd ${name}`)
+          info(`    cd Server && yarn && yarn dev\n`)
+          info(`    cd Web && yarn && yarn start\n`)
+          info(`    cd Mobile && yarn && npx react-native run-android`)
+          success('\n🔥  Happy hacking!')
+        }
+        return
       } catch(err) {
-        error('Could not create the project')
-        return;
+        spinner.fail('\nCould not create the project')
+        return
       }      
-    })   
+    }) 
   }
 }
