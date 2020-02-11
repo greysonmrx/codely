@@ -1,7 +1,11 @@
 {
   "name": "codely",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "codely CLI",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/greysonmrx/codely"
+  },
   "private": false,
   "types": "build/types/types.d.ts",
   "bin": {
