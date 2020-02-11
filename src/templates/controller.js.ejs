@@ -1,0 +1,13 @@
+class <%= props.name %> {<% props.methods.map(method => { %>
+    async <%= method %>(req, res) {
+      try {
+      } catch(err) {
+        return res.status(400).json({
+          message: "Operação indisponível"
+        });
+      }
+    }<% }); %>
+}
+
+<% if (props.es6) { %>export default new <%= props.name %>();<% } else { %>module.exports = new <%= props.name %>();
+<% } %>

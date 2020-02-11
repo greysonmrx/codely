@@ -1,0 +1,15 @@
+<% if (props.es6) { %>import { Request, Response } from 'express';<% } else { %>const { Request, Response } = require('express');<% } %>
+
+class <%= props.name %> {<% props.methods.map(method => { %>
+    public async <%= method %>(req: Request, res: Response): Response {
+      try {
+      } catch(err) {
+        return res.status(400).json({
+          message: 'Operação indisponível'
+        });
+      } 
+    }
+    <% }); %>
+}
+
+<% if (props.es6) { %>export default new <%= props.name %>();<% } else { %>module.exports = new <%= props.name %>();<% } %>
