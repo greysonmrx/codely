@@ -70,6 +70,21 @@ Then, answer the questions below:
 
 And then a folder will be created with the name of the component inside src/pages with an index file and a styles files.
 
+### Creating a new controller
+
+Run the following command:
+
+`codely generate:controller`
+
+Then, answer the questions below:
+
+1. What is the name of the controller?
+2. What methods do you want to use?
+3. Does your project use the JavaScript modules type (import/export)?
+4. Do you want to create the controller using typescript?
+
+And then a file will be created with the name of the controller inside src/app/controllers.
+
 ## Contributing
 
 Please read [CONTRIBUTING.md](contributing.md) for details on our code of conduct, and the process for submitting pull requests.
