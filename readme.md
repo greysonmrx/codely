@@ -1,12 +1,12 @@
-<h1 align="center" style="display: flex; justify-content: center;">
+<div align="center">
   <img src="./docs/code.png" height="200px" alt="Codely"/>
-</h1>
+</div>
 
 <h3 align="center">
   The codely command line utility.
 </h3>
 
-<div align="center" style="display: flex; justify-content: center;">
+<div align="center">
   <img alt="Made by Greyson Mascarenhas" src="https://img.shields.io/badge/made%20by-Greyson%20Mascarenhas-%23007acc"/>
   <img alt="Language count" src="https://img.shields.io/github/languages/count/greysonmrx/codely?color=%23007acc"/>
   <img alt="License" src="https://img.shields.io/badge/license-MIT-%23007acc"/>
