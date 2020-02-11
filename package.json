@@ -1,7 +1,7 @@
 {
   "name": "codely",
-  "version": "0.0.2",
-  "description": "codely CLI",
+  "version": "0.0.3",
+  "description": "The codely command line utility.",
   "repository": {
     "type": "git",
     "url": "https://github.com/greysonmrx/codely"
@@ -11,6 +11,16 @@
   "bin": {
     "codely": "bin/codely"
   },
+  "keywords": [
+    "command-line",
+    "codely",
+    "javascript",
+    "node",
+    "utilities",
+    "react-native",
+    "reactjs"
+  ],
+  "author": "Greyson Mascarenhas",
   "scripts": {
     "format": "prettier --write **/*.{js,ts,tsx,json}",
     "lint": "tslint -p .",
