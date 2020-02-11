@@ -42,22 +42,19 @@ module.exports = {
     }
 
     const repositories: Object = {
-      'Server': 'https://github.com/greysonmrx/node-structure',
-      'Web': 'https://github.com/greysonmrx/react-structure',
-      'Mobile': 'https://github.com/greysonmrx/react-native-structure'
+      Server: 'https://github.com/greysonmrx/node-structure',
+      Web: 'https://github.com/greysonmrx/react-structure',
+      Mobile: 'https://github.com/greysonmrx/react-native-structure'
     }
 
     const Git = simplegit()
-    
+
     const spinner = spin(`Cloning repositories...\n`)
     spinner.start()
 
     types.map(async (type, index) => {
       try {
-        await Git.clone(
-          `${repositories[type]}`,
-          `./${name}/${type}`
-        )
+        await Git.clone(`${repositories[type]}`, `./${name}/${type}`)
 
         if (index === types.length - 1) {
           spinner.succeed('All repositories have been successfully cloned')
@@ -69,10 +66,10 @@ module.exports = {
           success('\n🔥  Happy hacking!')
         }
         return
-      } catch(err) {
+      } catch (err) {
         spinner.fail('\nCould not create the project')
         return
-      }      
-    }) 
+      }
+    })
   }
 }

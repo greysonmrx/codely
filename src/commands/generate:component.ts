@@ -1,7 +1,7 @@
 import { GluegunToolbox } from 'gluegun'
 
 interface Result {
-  name: string,
+  name: string
   typescript: boolean
 }
 
@@ -40,17 +40,15 @@ module.exports = {
     spinner.start()
 
     await template.generate({
-      template: typescript 
-                  ? 'component-typescript.js.ejs' 
-                  : 'component.js.ejs',
-      target: typescript 
-                  ? `src/components/${name}/index.tsx`
-                  : `src/components/${name}/index.js`,
+      template: typescript ? 'component-typescript.js.ejs' : 'component.js.ejs',
+      target: typescript
+        ? `src/components/${name}/index.tsx`
+        : `src/components/${name}/index.js`,
       props: { name }
     })
 
     const packageJson = await filesystem.read('package.json', 'json')
-    const isReactNative = !!packageJson.dependencies['react-native'];
+    const isReactNative = !!packageJson.dependencies['react-native']
 
     const styleTemplate = isReactNative
       ? 'styles-rn.js.ejs'
@@ -58,9 +56,9 @@ module.exports = {
 
     await template.generate({
       template: styleTemplate,
-      target: typescript 
-                  ? `src/components/${name}/styles.ts`
-                  : `src/components/${name}/styles.js`,
+      target: typescript
+        ? `src/components/${name}/styles.ts`
+        : `src/components/${name}/styles.js`
     })
 
     spinner.succeed('Component successfully created inside src/components')
